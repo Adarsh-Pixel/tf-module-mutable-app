@@ -8,6 +8,6 @@ resource "aws_spot_instance_request" "spot" {
   wait_for_fulfillment  = true
 
   tags = {
-    Name = "CheapWorker"
+    Name = "${var.COMPONENT}-${var.ENV}"
   }
 }
