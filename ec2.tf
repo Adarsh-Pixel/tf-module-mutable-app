@@ -11,3 +11,15 @@ resource "aws_spot_instance_request" "spot" {
     Name = "${var.COMPONENT}-${var.ENV}"
   }
 }
+
+### Creates OD instances
+
+resource "aws_instance" "web" {
+  count                 = var.OD_INSTANCE_COUNT
+  ami                   = data.aws_ami.ami.image_id
+  instance_type         = var.OD_INSTANCE_TYPE
+
+  tags = {
+    Name = "${var.COMPONENT}-${var.ENV}"
+  }
+}
