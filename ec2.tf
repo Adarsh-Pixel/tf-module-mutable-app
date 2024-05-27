@@ -27,3 +27,5 @@ resource "aws_instance" "od" {
     Name = "${var.COMPONENT}-${var.ENV}"
   }
 }
+
+## If this is called by frontend Component, then these instances has to be created in the PUBLIC SUBNET. If not, they are supposed to be created on PRIVATE SUBNET
