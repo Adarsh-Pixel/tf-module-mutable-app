@@ -1,6 +1,7 @@
 ### Creates SPOT instances
 
 resource "aws_spot_instance_request" "spot" {
+  count                 = var.SPOT_INSTANCE_COUNT
   ami                   = data.aws_ami.ami.image_id
   spot_price            = "0.03"
   instance_type         = var.SPOT_INSTANCE_TYPE
