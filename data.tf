@@ -17,3 +17,10 @@ data "aws_secretsmanager_secret" "secrets" {
 data "aws_secretsmanager_secret_version" "secret_version" {
   secret_id     = data.aws_secretsmanager_secret.secrets.id
 }
+
+# Datasource to fetch the info of AMI
+data "aws_ami" "ami" {
+  most_recent      = true
+  name_regex       = "b55-ansible-lab-image"
+  owners           = ["self"]
+}
