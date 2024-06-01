@@ -1,4 +1,4 @@
-# Reads the information from the remote statefile
+# Reads the information from the remote VPC statefile
 data "terraform_remote_state" "vpc" {
   backend = "s3"
   config = {
@@ -8,6 +8,7 @@ data "terraform_remote_state" "vpc" {
   }
 }
 
+# Reads the information from the remote ALB statefile
 data "terraform_remote_state" "alb" {
   backend = "s3"
   config = {
