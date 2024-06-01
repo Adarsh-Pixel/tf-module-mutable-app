@@ -4,5 +4,5 @@ resource "aws_route53_record" "docdb_dns" {
   name    = "${var.COMPONENT}-${var.ENV}"
   type    = "CNAME"
   ttl     = 10
-  records = var.INTERNAL ? [data.terraform_remote_state.vpc.outputs.PRIVATE_ALB_ARN] : [data.terraform_remote_state.vpc.outputs.PUBLIC_ALB_ARN]
+  records = var.INTERNAL ? [data.terraform_remote_state.vpc.outputs.PRIVATE_ALB_ADDRESS] : [data.terraform_remote_state.vpc.outputs.PUBLIC_ALB_ADDRESS]
 }
