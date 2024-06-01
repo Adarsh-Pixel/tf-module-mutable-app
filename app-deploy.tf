@@ -15,6 +15,7 @@ resource "null_resource" "app" {
       host     = element(local.INSTANCE_PRIVATE_IPS, count.index)
     }
     inline = [
+        "sleep 30" ,
         "ansible-pull -U https://github.com/Adarsh-Pixel/ansible.git -e ENG=dev -e COMPONENT=${var.COMPONENT} roboshop-pull.yml"
     ]
   }
