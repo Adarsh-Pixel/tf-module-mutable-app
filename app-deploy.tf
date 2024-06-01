@@ -10,8 +10,7 @@ resource "null_resource" "app" {
   }
   provisioner "remote-exec" {
     inline = [
-        "echo hai"
+        "ansible-pull -U https://github.com/Adarsh-Pixel/ansible.git -e ENG=dev -e COMPONENT=${var.COMPONENT} roboshop-pull.yml"
     ]
   }
-
 }
