@@ -8,6 +8,15 @@ data "terraform_remote_state" "vpc" {
   }
 }
 
+data "terraform_remote_state" "alb" {
+  backend = "s3"
+  config = {
+    bucket = "b55-tf-state"
+    key    = "alb/${var.ENV}/terraform.tfstate"
+    region = "us-east-1"
+  }
+}
+
 # Fetches the information of the secret (reads the information of secret)
 data "aws_secretsmanager_secret" "secrets" {
   name = "robot/secrets"
