@@ -1,11 +1,12 @@
 #Installing the Application
 resource "null_resource" "app" {
-  count = local.INSTANCE_COUNT
 
   triggers = {
     always_run = "${timestamp()}"
   }
 
+  count = local.INSTANCE_COUNT
+  
   provisioner "remote-exec" {
       connection {
       user     = local.SSH_USERNAME
