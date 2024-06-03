@@ -22,5 +22,5 @@ resource "aws_lb_target_group_attachment" "attach_instances" {
   count            = local.INSTANCE_COUNT
   target_group_arn = aws_lb_target_group.app.arn
   target_id        = element(local.INSTANCE_IDS, count.index)
-  port             = 8080
+  port             = var.APP_PORT
 }
